@@ -1,1 +1,7 @@
 Django
+django-cors-headers==3.13.0
+django-storages==1.13.2
+Pillow==9.4.0
+google-auth
+google-cloud-storage
+djangorestframework==3.14.0
