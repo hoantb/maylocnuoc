@@ -127,10 +127,10 @@ from google.oauth2 import service_account
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     "maylocnuoc/bucket_credentials.json"
 )
-GS_LOCATION = 'backend'
+GS_LOCATION = 'maylocnuoc/backend'
 # Storage files
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
-GS_BUCKET_NAME = 'maylocnuoc'
+GS_BUCKET_NAME = 'reader-web-statics'
 
