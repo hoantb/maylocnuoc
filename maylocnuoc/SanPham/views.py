@@ -20,4 +20,18 @@ class SanPhamViewSet(viewsets.ViewSet):
         serializer = SanPhamSerializer(san_pham)
         return Response(serializer.data)
 
+class SanPhamNoiBatViewSet(viewsets.ViewSet):
+    """
+    A simple ViewSet for listing or retrieving SanPhamNoiBat.
+    """
+    def list(self, request):
+        queryset = SanPham.objects.all()
+        serializer = SanPhamSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        queryset = SanPham.objects.all()
+        san_pham = get_object_or_404(queryset, pk=pk)
+        serializer = SanPhamSerializer(san_pham)
+        return Response(serializer.data)
 

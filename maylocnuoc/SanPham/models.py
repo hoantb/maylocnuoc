@@ -13,3 +13,10 @@ class SanPham(models.Model):
 
     def __str__(self) -> str:
         return self.ten
+
+class SanPhamNoiBat(models.Model):
+    san_pham = models.OneToOneField(SanPham, null=False, blank=False, on_delete=models.CASCADE, related_name='san_pham')
+    do_noi_bat = models.PositiveIntegerField(null=False, blank=False, default=0)
+
+    def __str__(self) -> str:
+        return self.san_pham.ten

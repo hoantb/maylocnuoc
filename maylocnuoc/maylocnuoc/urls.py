@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from SanPham.views import SanPhamViewSet
+from SanPham.views import SanPhamViewSet, SanPhamNoiBatViewSet
 from TheLoai.views import TheLoaiViewSet
 
 router = DefaultRouter()
 router.register(r'api/san-pham', SanPhamViewSet, basename='san-pham')
 router.register(r'api/danh-muc', TheLoaiViewSet, basename='danh-muc')
+router.register(r'api/san-pham-noi-bat', SanPhamNoiBatViewSet, basename='san-pham-noi-bat')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
