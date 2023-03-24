@@ -21,7 +21,7 @@ from TheLoai.views import TheLoaiViewSet
 
 router = DefaultRouter()
 router.register(r'api/san-pham', SanPhamViewSet, basename='san-pham')
-router.register(r'api/danh-muc', SanPhamViewSet, basename='danh-muc')
+router.register(r'api/danh-muc', TheLoaiViewSet, basename='danh-muc')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
