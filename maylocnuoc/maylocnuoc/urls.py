@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from SanPham.views import SanPhamViewSet
+
+router = DefaultRouter()
+router.register(r'api/san-pham', SanPhamViewSet, basename='san-pham')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
 ]
+
+urlpatterns += router.urls
