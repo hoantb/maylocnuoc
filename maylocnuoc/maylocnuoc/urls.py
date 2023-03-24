@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from SanPham.views import SanPhamViewSet
+from TheLoai.views import TheLoaiViewSet
 
 router = DefaultRouter()
 router.register(r'api/san-pham', SanPhamViewSet, basename='san-pham')
+router.register(r'api/danh-muc', SanPhamViewSet, basename='danh-muc')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
