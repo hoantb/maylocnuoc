@@ -24,7 +24,19 @@ class SanPhamViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
 
     def list(self, request):
         queryset = SanPham.objects.all()
-        #serializer = SanPhamSerializer(queryset, many=True)
+        sort_type = request.GET.get('sort-type', None)
+
+        if sort_type == "latest":
+            queryset = queryset
+        elif sort_type == "popular":
+            queryset = queryset
+        elif sort_type == "price_low_to_high":
+            queryset = queryset.order_by('gia')
+        elif sort_type == "price_high_to_low":
+            queryset = queryset.order_by('-gia')
+        else:
+            queryset = queryset.order_by('title')
+
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
@@ -44,7 +56,7 @@ class SanPhamNoiBatViewSet(viewsets.ViewSet):
     A simple ViewSet for listing or retrieving SanPhamNoiBat.
     """
     def list(self, request):
-        queryset = SanPhamNoiBat.objects.all()
+        queryset = SanPhamNoiBat.objects.all().order_by('-do_noi_bat')
         serializer = SanPhamNoiBatSerializer(queryset, many=True)
         return Response(serializer.data)
 
