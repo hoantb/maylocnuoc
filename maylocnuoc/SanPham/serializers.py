@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from SanPham.models import SanPham
+from SanPham.models import SanPham, SanPhamNoiBat
 
 
 class SanPhamSerializer(serializers.ModelSerializer):
@@ -12,5 +12,5 @@ class SanPhamNoiBatSerializer(serializers.ModelSerializer):
     san_pham = SanPhamSerializer()
 
     class Meta:
-        model = SanPham
+        model = SanPhamNoiBat
         fields = ['id', 'do_noi_bat', 'san_pham']
