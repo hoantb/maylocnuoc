@@ -35,7 +35,7 @@ class SanPhamViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
         elif sort_type == "price_high_to_low":
             queryset = queryset.order_by('-gia')
         else:
-            queryset = queryset.order_by('title')
+            queryset = queryset.order_by('ten')
 
         page = self.paginate_queryset(queryset)
         if page is not None:
