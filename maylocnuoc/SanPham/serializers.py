@@ -12,7 +12,7 @@ class SanPhamShortSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SanPham
-        fields = ["id", "ten", "gia"]
+        fields = ["id", "ten", "gia", "hinh_anh"]
 
 class SanPhamNoiBatSerializer(serializers.ModelSerializer):
     san_pham = SanPhamShortSerializer()
