@@ -1,7 +1,7 @@
 from rest_framework import viewsets, mixins
-from SanPham.models import SanPham
+from SanPham.models import SanPham, SanPhamNoiBat
 from django.shortcuts import get_object_or_404
-from SanPham.serializers import SanPhamSerializer
+from SanPham.serializers import SanPhamSerializer, SanPhamNoiBatSerializer
 from rest_framework.response import Response
 from rest_framework import pagination
 
@@ -44,13 +44,13 @@ class SanPhamNoiBatViewSet(viewsets.ViewSet):
     A simple ViewSet for listing or retrieving SanPhamNoiBat.
     """
     def list(self, request):
-        queryset = SanPham.objects.all()
-        serializer = SanPhamSerializer(queryset, many=True)
+        queryset = SanPhamNoiBat.objects.all()
+        serializer = SanPhamNoiBatSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        queryset = SanPham.objects.all()
+        queryset = SanPhamNoiBat.objects.all()
         san_pham = get_object_or_404(queryset, pk=pk)
-        serializer = SanPhamSerializer(san_pham)
+        serializer = SanPhamNoiBatSerializer(san_pham)
         return Response(serializer.data)
 
