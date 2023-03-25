@@ -8,8 +8,14 @@ class SanPhamSerializer(serializers.ModelSerializer):
         model = SanPham
         fields = "__all__"
 
+class SanPhamShortSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = SanPham
+        fields = ["id", "ten", "gia"]
+
 class SanPhamNoiBatSerializer(serializers.ModelSerializer):
-    san_pham = SanPhamSerializer()
+    san_pham = SanPhamShortSerializer()
 
     class Meta:
         model = SanPhamNoiBat
