@@ -18,6 +18,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from SanPham.views import SanPhamViewSet, SanPhamNoiBatViewSet
 from TheLoai.views import TheLoaiViewSet
+from NguoiDung.views import TinNhanGopYView
 
 router = DefaultRouter()
 router.register(r'api/san-pham', SanPhamViewSet, basename='san-pham')
@@ -27,6 +28,7 @@ router.register(r'api/san-pham-noi-bat', SanPhamNoiBatViewSet, basename='san-pha
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
+    path('api/tin-nhan-gop-y', TinNhanGopYView.as_view())
 ]
 
 urlpatterns += router.urls

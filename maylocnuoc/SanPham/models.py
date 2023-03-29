@@ -10,6 +10,7 @@ class SanPham(models.Model):
     don_vi_tien = models.CharField(max_length=10, null=True, blank=True, default="VND")
     mo_ta_ngan = models.TextField(null=True, blank=True)
     mo_ta_dai = tinymce_models.HTMLField(null=True, blank=True)
+    ngay_tao = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self) -> str:
         return self.ten

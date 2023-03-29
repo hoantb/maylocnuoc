@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'tinymce',
     'TheLoai',
-    'SanPham'
+    'SanPham',
+    'NguoiDung'
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 MIDDLEWARE = [
