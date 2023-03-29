@@ -11,4 +11,4 @@ class TinNhanGopYView(views.APIView):
         if serializer.is_valid():
             print(serializer.validated_data)
         
-        return Response(errors=serializer.errors)
+        return Response({"error": "wrong the form input"})
