@@ -9,6 +9,7 @@ class TinNhanGopYView(views.APIView):
     def post(self, request):
         serializer = TinNhanGopYSerializer(data=request.data)
         if serializer.is_valid():
-            print(serializer.validated_data)
+            serializer.save()
+            return Response({"success": True, "message": "Gui Gop Y Thanh Cong"}, status=200)
         
-        return Response({"error": "wrong the form input"})
+        return Response({"error": "wrong the form input"}, status=404)

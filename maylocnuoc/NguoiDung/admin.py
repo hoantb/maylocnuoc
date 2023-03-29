@@ -1,3 +1,8 @@
 from django.contrib import admin
+from NguoiDung.models import TinNhanGopY
 
-# Register your models here.
+
+class TinNhanGopYAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(TinNhanGopY, TinNhanGopYAdmin)
