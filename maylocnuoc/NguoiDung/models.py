@@ -10,3 +10,10 @@ class TinNhanGopY(models.Model):
 
     def __str__(self) -> str:
         return self.ten
+
+class DangKySubscribe(models.Model):
+    email = models.CharField(max_length=100, null=True, blank=True)
+    ngay_tao = models.DateTimeField(auto_now_add=True, blank=False, null=False)
+
+    def __str__(self) -> str:
+        return self.email

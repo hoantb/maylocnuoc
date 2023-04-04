@@ -1,6 +1,6 @@
 from rest_framework import views
 from NguoiDung.models import TinNhanGopY
-from NguoiDung.serializers import TinNhanGopYSerializer
+from NguoiDung.serializers import TinNhanGopYSerializer, DangKySubscribeSerializer
 from rest_framework.response import Response
 
 class TinNhanGopYView(views.APIView):
@@ -12,4 +12,15 @@ class TinNhanGopYView(views.APIView):
             serializer.save()
             return Response({"success": True, "message": "Gui Gop Y Thanh Cong"}, status=200)
         
-        return Response({"error": "wrong the form input"}, status=404)
+        return Response({"success": False, "error": "Sai Du Lieu Nhap Vao"}, status=400)
+
+class DangKySubscribeView(views.APIView):
+    serilizer_class = DangKySubscribeSerializer
+
+    def post(self, request):
+        serializer = DangKySubscribeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"success": True, "message": "Subscribe Thanh Cong"}, status=200)
+        
+        return Response({"success": False, "error": "Sai Du Lieu Nhap Vao"}, status=400)
