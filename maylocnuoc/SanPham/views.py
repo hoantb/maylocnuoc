@@ -25,6 +25,10 @@ class SanPhamViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
     def list(self, request):
         queryset = SanPham.objects.all()
         sort_type = request.GET.get('sort-type', None)
+        search_name = request.GET.get('search-name', None)
+
+        if search_name:
+            queryset = queryset.filter(title__contains=search_name)
 
         if sort_type == "latest":
             queryset = queryset
