@@ -28,7 +28,7 @@ class SanPhamViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
         search_name = request.GET.get('search-name', None)
 
         if search_name:
-            queryset = queryset.filter(ten__contains=search_name)
+            queryset = queryset.filter(ten__icontains=search_name)
 
         if sort_type == "latest":
             queryset = queryset
