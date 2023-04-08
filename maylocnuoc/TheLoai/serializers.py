@@ -10,7 +10,7 @@ class TheLoaiSerializer(serializers.ModelSerializer):
 
 
 class TheLoaiTrangChuSerializer(serializers.ModelSerializer):
-    san_phams = SanPhamShortSerializer
+    san_phams = SanPhamShortSerializer(many=True)
 
     class Meta:
         model = TheLoai
