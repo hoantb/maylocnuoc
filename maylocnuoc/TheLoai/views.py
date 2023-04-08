@@ -9,7 +9,7 @@ class TheLoaiViewSet(viewsets.ViewSet):
     """
     A simple ViewSet for listing or retrieving TheLoai.
     """
-    @action(methods=['GET'], detail=False, url_path='danh-muc/danh-muc-trang-chu')
+    @action(methods=['GET'], detail=False, url_path='danh-muc-trang-chu')
     def get_categories(self, request, *args, **kwargs):
         queryset = TheLoai.objects.filter(hien_thi_trang_chu=True)
         serializer = TheLoaiTrangChuSerializer(queryset, many=True)
