@@ -21,6 +21,6 @@ class TheLoaiTrangChuSerializer(serializers.ModelSerializer):
         """
         Get each categories 4 products
         """
-        queryset = SanPham.objects.filter(the_loai=instance)
+        queryset = SanPham.objects.filter(the_loai=instance)[:4]
         serializer = SanPhamShortSerializer(instance=queryset, many=True)
         return serializer.data
