@@ -20,5 +20,5 @@ class TheLoaiTrangChuSerializer(serializers.ModelSerializer):
         """
         Get each categories 4 products
         """
-        serializer = SanPhamShortSerializer(data=instance.san_phams[:5])
+        serializer = SanPhamShortSerializer(data=list(instance.san_phams)[:5])
         return serializer.data
