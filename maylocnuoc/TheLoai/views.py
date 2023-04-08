@@ -12,7 +12,7 @@ class TheLoaiViewSet(viewsets.ViewSet):
     @action(methods=['GET'], detail=False, url_path='danh-muc/danh-muc-trang-chu')
     def get_categories(self, request, *args, **kwargs):
         queryset = TheLoai.objects.filter(hien_thi_trang_chu=True)
-        serializer = TheLoaiSerializer(queryset, many=True)
+        serializer = TheLoaiTrangChuSerializer(queryset, many=True)
         return Response({"data": serializer.data}, status=200)
 
     def list(self, request):
