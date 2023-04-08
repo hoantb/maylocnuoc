@@ -26,12 +26,14 @@ class SanPhamViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
         queryset = SanPham.objects.all()
         sort_type = request.GET.get('sort-type', None)
         search_name = request.GET.get('search-name', None)
-        categories_filter = request.GET.get('categories-filter', [])
-        print(categories_filter)
+        categories_filter = request.GET.get('categories-filter', None)
+
         if search_name:
             queryset = queryset.filter(ten__icontains=search_name)
         
         if categories_filter:
+            categories_filter = categories_filter.strip()
+            categories_filter = [int(category_str) for category_str in categories_filter.split('')]
             queryset = queryset.filter(the_loai_id__in=categories_filter)
 
         if sort_type == "latest":
