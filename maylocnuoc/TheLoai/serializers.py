@@ -10,8 +10,15 @@ class TheLoaiSerializer(serializers.ModelSerializer):
 
 
 class TheLoaiTrangChuSerializer(serializers.ModelSerializer):
-    san_phams = SanPhamShortSerializer(many=True)
+    san_phams = serializers.SerializerMethodField()
 
     class Meta:
         model = TheLoai
         fields = ["id", "ten", "san_phams"]
+    
+    def get_san_phams(self, instance):
+        """
+        Get each categories 4 products
+        """
+        serializer = SanPhamShortSerializer(data=instance.san_phams[:5])
+        return serializer.data
