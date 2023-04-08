@@ -1,9 +1,11 @@
 from rest_framework import viewsets, mixins
-from SanPham.models import SanPham, SanPhamNoiBat
-from django.shortcuts import get_object_or_404
-from SanPham.serializers import SanPhamSerializer, SanPhamNoiBatSerializer
 from rest_framework.response import Response
 from rest_framework import pagination
+from rest_framework.decorators import action
+from django.shortcuts import get_object_or_404
+from SanPham.models import SanPham, SanPhamNoiBat
+from SanPham.serializers import SanPhamSerializer, SanPhamNoiBatSerializer, SanPhamShortSerializer
+
 
 class SanPhamPagination(pagination.PageNumberPagination):
     page_size = 9
@@ -21,6 +23,13 @@ class SanPhamViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
 
     def get_queryset(self):
         return SanPham.objects.all()
+    
+    @action(methods=['POST'], detail=True, url_path='san-pham-lien-quan')
+    def get_relevant_products(self, request, *args, **kwargs):
+        obj = self.get_object()
+        queryset = SanPham.objects.filter(the_loai=obj.the_loai)[:4]
+        serializer = SanPhamShortSerializer(queryset, many=True)
+        return Response({"data": serializer.data}, status=200)
 
     def list(self, request):
         queryset = SanPham.objects.all()
