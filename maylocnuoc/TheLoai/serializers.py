@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from TheLoai.models import TheLoai
 from SanPham.serializers import SanPhamShortSerializer
+from SanPham.models import SanPham
 
 class TheLoaiSerializer(serializers.ModelSerializer):
 
@@ -20,5 +21,6 @@ class TheLoaiTrangChuSerializer(serializers.ModelSerializer):
         """
         Get each categories 4 products
         """
-        serializer = SanPhamShortSerializer(data=list(instance.san_phams)[:5])
+        queryset = SanPham.objects.filter(the_loai=instance)
+        serializer = SanPhamShortSerializer(instance=queryset, many=True)
         return serializer.data
