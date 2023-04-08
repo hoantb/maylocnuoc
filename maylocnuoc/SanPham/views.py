@@ -33,7 +33,7 @@ class SanPhamViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
         
         if categories_filter:
             categories_filter = categories_filter.strip()
-            categories_filter = [int(category_str) for category_str in categories_filter.split('')]
+            categories_filter = [int(category_str) for category_str in categories_filter.split(',')]
             queryset = queryset.filter(the_loai_id__in=categories_filter)
 
         if sort_type == "latest":
