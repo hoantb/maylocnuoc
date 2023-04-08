@@ -24,7 +24,7 @@ class SanPhamViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
     def get_queryset(self):
         return SanPham.objects.all()
     
-    @action(methods=['POST'], detail=True, url_path='san-pham-lien-quan')
+    @action(methods=['GET'], detail=True, url_path='san-pham-lien-quan')
     def get_relevant_products(self, request, *args, **kwargs):
         obj = self.get_object()
         queryset = SanPham.objects.filter(the_loai=obj.the_loai)[:4]
