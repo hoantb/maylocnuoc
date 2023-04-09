@@ -19,11 +19,13 @@ from rest_framework.routers import DefaultRouter
 from SanPham.views import SanPhamViewSet, SanPhamNoiBatViewSet
 from TheLoai.views import TheLoaiViewSet
 from NguoiDung.views import TinNhanGopYView, DangKySubscribeView
+from GioiThieu.views import GioiThieuViewSet
 
 router = DefaultRouter()
 router.register(r'api/san-pham', SanPhamViewSet, basename='san-pham')
 router.register(r'api/danh-muc', TheLoaiViewSet, basename='danh-muc')
 router.register(r'api/san-pham-noi-bat', SanPhamNoiBatViewSet, basename='san-pham-noi-bat')
+router.register(r'api/gioi-thieu', GioiThieuViewSet, basename='san-pham-noi-bat')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
