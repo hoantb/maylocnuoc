@@ -9,6 +9,6 @@ class GioiThieuViewSet(viewsets.ViewSet):
     A simple ViewSet for listing GioiThieu.
     """
     def list(self, request):
-        queryset = GioiThieu.objects.all().order_by('-do_noi_bat')
+        queryset = GioiThieu.objects.all()
         serializer = GioiThieuSerializer(queryset, many=True)
         return Response({"data": serializer.data}, status=200)
