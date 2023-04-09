@@ -10,10 +10,10 @@ class SanPhamForm(forms.ModelForm):
         fields = '__all__'
 
 class SanPhamAdmin(admin.ModelAdmin):
-    form = SanPhamForm
+    list_display = ('id', 'ten', 'the_loai')
 
 class SanPhamNoiBatAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'san_pham__ten', 'san_pham__the_loai', 'do_noi_bat')
 
 admin.site.register(SanPham, SanPhamAdmin)
 admin.site.register(SanPhamNoiBat, SanPhamNoiBatAdmin)
