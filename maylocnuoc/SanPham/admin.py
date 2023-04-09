@@ -13,7 +13,7 @@ class SanPhamAdmin(admin.ModelAdmin):
     list_display = ('id', 'ten', 'the_loai')
 
 class SanPhamNoiBatAdmin(admin.ModelAdmin):
-    list_display = ('id', 'do_noi_bat')
+    list_display = ('id', 'san_pham', 'do_noi_bat')
 
 admin.site.register(SanPham, SanPhamAdmin)
 admin.site.register(SanPhamNoiBat, SanPhamNoiBatAdmin)
