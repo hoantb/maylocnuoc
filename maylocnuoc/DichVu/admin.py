@@ -1,15 +1,15 @@
 from django.contrib import admin
 from django import forms
-from GioiThieu.models import GioiThieu
+from DichVu.models import DichVu
 from tinymce.widgets import TinyMCE
 
-class GioiThieuForm(forms.ModelForm):
+class DichVuForm(forms.ModelForm):
     mo_ta_dai = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 100}))
     class Meta:
-        model = GioiThieu
+        model = DichVu
         fields = '__all__'
 
-class GioiThieuAdmin(admin.ModelAdmin):
+class DichVuAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(GioiThieu, GioiThieuAdmin)
+admin.site.register(DichVu, DichVuAdmin)
