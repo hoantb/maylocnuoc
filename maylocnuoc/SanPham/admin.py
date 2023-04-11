@@ -10,7 +10,9 @@ class SanPhamForm(forms.ModelForm):
         fields = '__all__'
 
 class SanPhamAdmin(admin.ModelAdmin):
+    form = SanPhamForm
     list_display = ('id', 'ten', 'the_loai')
+    
 
 class SanPhamNoiBatAdmin(admin.ModelAdmin):
     list_display = ('id', 'san_pham', 'do_noi_bat')
