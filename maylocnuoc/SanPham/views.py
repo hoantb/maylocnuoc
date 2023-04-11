@@ -27,7 +27,7 @@ class SanPhamViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
     @action(methods=['GET'], detail=True, url_path='san-pham-lien-quan')
     def get_relevant_products(self, request, *args, **kwargs):
         obj = self.get_object()
-        queryset = SanPham.objects.filter(the_loai=obj.the_loai).exclude()[:4]
+        queryset = SanPham.objects.filter(the_loai=obj.the_loai).exclude(pk=obj.pk)[:4]
         serializer = SanPhamShortSerializer(queryset, many=True)
         return Response({"data": serializer.data}, status=200)
 
