@@ -4,7 +4,7 @@ from SanPham.models import SanPham, SanPhamNoiBat
 from tinymce.widgets import TinyMCE
 
 class SanPhamForm(forms.ModelForm):
-    mo_ta_dai = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
+    mo_ta_dai = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 100}))
     class Meta:
         model = SanPham
         fields = '__all__'
