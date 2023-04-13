@@ -21,6 +21,7 @@ from TheLoai.views import TheLoaiViewSet
 from NguoiDung.views import TinNhanGopYView, DangKySubscribeView
 from GioiThieu.views import GioiThieuViewSet
 from DichVu.views import DichVuViewSet
+from TinTuc.views import TinTucViewSet
 
 router = DefaultRouter()
 router.register(r'api/san-pham', SanPhamViewSet, basename='san-pham')
@@ -28,6 +29,7 @@ router.register(r'api/danh-muc', TheLoaiViewSet, basename='danh-muc')
 router.register(r'api/san-pham-noi-bat', SanPhamNoiBatViewSet, basename='san-pham-noi-bat')
 router.register(r'api/gioi-thieu', GioiThieuViewSet, basename='gioi-thieu')
 router.register(r'api/dich-vu', DichVuViewSet, basename='dich-vu')
+router.register(r'api/tin-tuc', TinTucViewSet, basename='tin-tuc')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
