@@ -17,4 +17,4 @@ class GiaoDienViewSet(viewsets.ViewSet):
             gioi_thieu = HinhTrangGioiThieuSerializer(HinhTrangGioiThieu.objects.filter().first()).data
         if HinhTrangLienHe.objects.filter():
             lien_he = HinhTrangLienHeSerializer(HinhTrangLienHe.objects.filter().first()).data
-        return Response({"data": {"slides": serializer.data, "gioi-thieu": gioi_thieu, "lien-he": lien_he}}, status=200)
+        return Response({"data": {"slides": serializer.data, "gioi_thieu": gioi_thieu, "lien_he": lien_he}}, status=200)
